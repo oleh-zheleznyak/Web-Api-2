@@ -12,8 +12,8 @@ namespace StudyTracker.WebApi.Controllers
     {
         private readonly Technology[] _technologies = new Technology[]
         {
-            new Technology("Web-Api", ""),
-            new Technology(".NET Framework", "")
+            new Technology(1,"Web-Api", ""),
+            new Technology(2,".NET Framework", "")
         };
         
         public IEnumerable<Technology> GetAllTechnologies()
@@ -23,7 +23,7 @@ namespace StudyTracker.WebApi.Controllers
 
         public IHttpActionResult GetTechnology(int id)
         {
-            var technology = _technologies.FirstOrDefault(x => x.Name == id.ToString());
+            var technology = _technologies.FirstOrDefault(x => x.Id == id);
             if (technology== null)
             {
                 return NotFound();
